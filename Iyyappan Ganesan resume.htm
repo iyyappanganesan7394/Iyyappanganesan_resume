@@ -1,0 +1,819 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume - Power BI Developer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Arial', sans-serif;
+            background: #f0f0f0;
+            padding: 20px;
+            line-height: 1.5;
+        }
+
+        .resume-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        /* LEFT SIDEBAR */
+        .sidebar {
+            background: #f7f7f7;
+            padding: 30px 25px;
+            border-right: 1px solid #e0e0e0;
+        }
+
+        .profile-section {
+            text-align: left;
+            margin-bottom: 30px;
+        }
+
+        .profile-image {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-bottom: 15px;
+            border: 3px solid #357ABD;
+            overflow: hidden;
+        }
+
+        .profile-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .profile-name {
+            font-size: 22px;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+
+        .profile-title {
+            font-size: 13px;
+            color: #7f8c8d;
+            margin-bottom: 2px;
+        }
+
+        .sidebar-section {
+            margin-bottom: 30px;
+        }
+
+        .sidebar-heading {
+            font-size: 14px;
+            font-weight: 700;
+            color: #4A90E2;
+            margin-bottom: 12px;
+            text-transform: capitalize;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 10px;
+            font-size: 11px;
+            color: #555;
+            line-height: 1.4;
+        }
+
+        .contact-item i {
+            color: #4A90E2;
+            width: 18px;
+            font-size: 12px;
+            margin-right: 8px;
+            margin-top: 2px;
+        }
+
+        .contact-item a {
+            color: #555;
+            text-decoration: none;
+        }
+
+        .skill-item {
+            margin-bottom: 15px;
+        }
+
+        .skill-name {
+            font-size: 12px;
+            margin-bottom: 6px;
+            color: #2c3e50;
+            font-weight: 500;
+        }
+
+        .skill-bar-container {
+            background: #e0e0e0;
+            height: 6px;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .skill-bar {
+            height: 100%;
+            background: #4A90E2;
+            border-radius: 3px;
+        }
+
+        .tools-item {
+            margin-bottom: 12px;
+        }
+
+        .tool-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 4px;
+        }
+
+        .tool-icon {
+            width: 20px;
+            height: 20px;
+            margin-right: 8px;
+            border-radius: 3px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            color: white;
+            font-weight: 700;
+        }
+
+        .tool-name {
+            font-size: 12px;
+            color: #2c3e50;
+            font-weight: 500;
+            flex: 1;
+        }
+
+        .tool-level-text {
+            font-size: 10px;
+            color: #7f8c8d;
+        }
+
+        .tool-bar-container {
+            background: #e0e0e0;
+            height: 4px;
+            border-radius: 2px;
+            overflow: hidden;
+            margin-left: 28px;
+        }
+
+        .tool-bar {
+            height: 100%;
+            background: #4A90E2;
+            border-radius: 2px;
+        }
+
+        .language-item {
+            margin-bottom: 10px;
+        }
+
+        .language-name {
+            font-size: 12px;
+            margin-bottom: 4px;
+            color: #2c3e50;
+            font-weight: 500;
+        }
+
+        .stars {
+            color: #f39c12;
+            font-size: 12px;
+            letter-spacing: 1px;
+        }
+
+        .stars .empty {
+            color: #ddd;
+        }
+
+        .hobbies-list {
+            font-size: 11px;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        /* RIGHT MAIN CONTENT */
+        .main-content {
+            padding: 30px 35px;
+        }
+
+        .main-header {
+            margin-bottom: 25px;
+        }
+
+        .main-name {
+            font-size: 28px;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+
+        .main-title {
+            font-size: 14px;
+            color: #7f8c8d;
+        }
+
+        .section {
+            margin-bottom: 30px;
+        }
+
+        .section-title {
+            font-size: 15px;
+            font-weight: 700;
+            color: #4A90E2;
+            margin-bottom: 12px;
+            text-transform: capitalize;
+        }
+
+        .about-text {
+            font-size: 11px;
+            color: #555;
+            line-height: 1.7;
+            text-align: justify;
+        }
+
+        .skills-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .skill-tag {
+            background: #f0f0f0;
+            padding: 5px 12px;
+            border-radius: 3px;
+            font-size: 10px;
+            color: #555;
+            border: 1px solid #e0e0e0;
+        }
+
+        .employment-section {
+            margin-bottom: 25px;
+        }
+
+        .employment-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 3px;
+        }
+
+        .job-title {
+            font-size: 13px;
+            font-weight: 700;
+            color: #2c3e50;
+        }
+
+        .job-duration {
+            font-size: 10px;
+            color: #7f8c8d;
+        }
+
+        .company-name {
+            font-size: 12px;
+            color: #4A90E2;
+            font-weight: 600;
+            margin-bottom: 2px;
+        }
+
+        .domain {
+            font-size: 10px;
+            color: #7f8c8d;
+            font-style: italic;
+            margin-bottom: 10px;
+        }
+
+        .subsection-title {
+            font-size: 11px;
+            font-weight: 700;
+            color: #2c3e50;
+            margin: 10px 0 6px 0;
+        }
+
+        .responsibilities-list,
+        .achievements-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .responsibilities-list li,
+        .achievements-list li {
+            position: relative;
+            padding-left: 15px;
+            margin-bottom: 5px;
+            font-size: 11px;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .responsibilities-list li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: #4A90E2;
+            font-size: 14px;
+        }
+
+        .achievements-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #27ae60;
+            font-weight: 700;
+            font-size: 12px;
+        }
+
+        .projects-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        .projects-table th {
+            text-align: left;
+            font-size: 11px;
+            font-weight: 700;
+            color: #2c3e50;
+            padding: 8px 10px 8px 0;
+            border-bottom: 2px solid #e0e0e0;
+        }
+
+        .projects-table td {
+            font-size: 10px;
+            color: #555;
+            padding: 10px 10px 10px 0;
+            border-bottom: 1px solid #f0f0f0;
+            vertical-align: top;
+            line-height: 1.5;
+        }
+
+        .project-name {
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .project-tech {
+            display: flex;
+            gap: 3px;
+            margin-top: 4px;
+        }
+
+        .tech-badge {
+            width: 16px;
+            height: 16px;
+            border-radius: 2px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 8px;
+            color: white;
+            font-weight: 700;
+        }
+
+        .education-card {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            border-left: 3px solid #4A90E2;
+        }
+
+        .degree {
+            font-size: 13px;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 4px;
+        }
+
+        .institution {
+            font-size: 11px;
+            color: #555;
+            margin-bottom: 2px;
+        }
+
+        .education-details {
+            font-size: 10px;
+            color: #7f8c8d;
+        }
+
+        .cgpa {
+            display: inline-block;
+            background: #4A90E2;
+            color: white;
+            padding: 3px 10px;
+            border-radius: 3px;
+            font-size: 10px;
+            font-weight: 600;
+            margin-top: 6px;
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+
+            .resume-container {
+                box-shadow: none;
+                max-width: 100%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .resume-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="resume-container">
+        <!-- LEFT SIDEBAR -->
+        <aside class="sidebar">
+            <!-- Profile Section -->
+            <div class="profile-section">
+                <div class="profile-image">
+                    <img src="https://image2url.com/r2/default/images/1770635115549-dc9537f6-7b68-45df-969a-d0ace4cd38e0.jpg" alt="Profile Photo">
+                </div>
+                <h1 class="profile-name">Iyyappan Ganesan</h1>
+                <p class="profile-title">Power BI Developer</p>
+            </div>
+
+            <!-- Contact Section -->
+            <div class="sidebar-section">
+                <h2 class="sidebar-heading">Contact</h2>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <span>+91 8508511297</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <a href="mailto:your.email@gmail.com">iyyappanganesan7394@gmail.com</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-linkedin"></i>
+                    <a href="#">linkedin.com/in/iyyappan-ganesan-69259835b</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Chennai, Tamil Nadu, India</span>
+                </div>
+            </div>
+
+            <!-- Academic Section -->
+            <div class="sidebar-section">
+                <h2 class="sidebar-heading">Academic</h2>
+                <div style="font-size: 11px; color: #555; line-height: 1.6;">
+                    <strong style="color: #2c3e50;">B.Arch.</strong> (Architecture)<br>
+                    Anna University, Chennai<br>
+                    <span style="color: #7f8c8d;">2012 - 2017</span><br>
+                    <span style="color: #4A90E2; font-weight: 600;">CGPA: 80.1%</span>
+                </div>
+            </div>
+
+            <!-- Tools Known -->
+            <div class="sidebar-section">
+                <h2 class="sidebar-heading">Tools Known</h2>
+
+                <div class="tools-item">
+                    <div class="tool-header">
+                        <div class="tool-icon" style="background: #3776AB;">
+                            <i class="fab fa-python"></i>
+                        </div>
+                        <div class="tool-name">Python</div>
+                        <div class="tool-level-text">85%</div>
+                    </div>
+                    <div class="tool-bar-container">
+                        <div class="tool-bar" style="width: 85%;"></div>
+                    </div>
+                </div>
+
+                <div class="tools-item">
+                    <div class="tool-header">
+                        <div class="tool-icon" style="background: #F2C811;">
+                            BI
+                        </div>
+                        <div class="tool-name">Power BI</div>
+                        <div class="tool-level-text">95%</div>
+                    </div>
+                    <div class="tool-bar-container">
+                        <div class="tool-bar" style="width: 95%;"></div>
+                    </div>
+                </div>
+
+                <div class="tools-item">
+                    <div class="tool-header">
+                        <div class="tool-icon" style="background: #336791;">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <div class="tool-name">SQL</div>
+                        <div class="tool-level-text">90%</div>
+                    </div>
+                    <div class="tool-bar-container">
+                        <div class="tool-bar" style="width: 90%;"></div>
+                    </div>
+                </div>
+
+                <div class="tools-item">
+                    <div class="tool-header">
+                        <div class="tool-icon" style="background: #217346;">
+                            <i class="fas fa-file-excel"></i>
+                        </div>
+                        <div class="tool-name">Excel</div>
+                        <div class="tool-level-text">92%</div>
+                    </div>
+                    <div class="tool-bar-container">
+                        <div class="tool-bar" style="width: 92%;"></div>
+                    </div>
+                </div>
+
+                <div class="tools-item">
+                    <div class="tool-header">
+                        <div class="tool-icon" style="background: #E97627;">
+                            <i class="fas fa-chart-bar"></i>
+                        </div>
+                        <div class="tool-name">Tableau</div>
+                        <div class="tool-level-text">88%</div>
+                    </div>
+                    <div class="tool-bar-container">
+                        <div class="tool-bar" style="width: 88%;"></div>
+                    </div>
+                </div>
+
+                <div class="tools-item">
+                    <div class="tool-header">
+                        <div class="tool-icon" style="background: #F24E1E;">
+                            <i class="fab fa-figma"></i>
+                        </div>
+                        <div class="tool-name">Figma</div>
+                        <div class="tool-level-text">75%</div>
+                    </div>
+                    <div class="tool-bar-container">
+                        <div class="tool-bar" style="width: 75%;"></div>
+                    </div>
+                </div>
+
+                <div class="tools-item">
+                    <div class="tool-header">
+                        <div class="tool-icon" style="background: #00C4CC;">
+                            <i class="fas fa-palette"></i>
+                        </div>
+                        <div class="tool-name">Canva</div>
+                        <div class="tool-level-text">80%</div>
+                    </div>
+                    <div class="tool-bar-container">
+                        <div class="tool-bar" style="width: 80%;"></div>
+                    </div>
+                </div>
+
+                <div class="tools-item">
+                    <div class="tool-header">
+                        <div class="tool-icon" style="background: #4285F4;">
+                            ETL
+                        </div>
+                        <div class="tool-name">ETL</div>
+                        <div class="tool-level-text">87%</div>
+                    </div>
+                    <div class="tool-bar-container">
+                        <div class="tool-bar" style="width: 87%;"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hobbies -->
+            <div class="sidebar-section">
+                <h2 class="sidebar-heading">Hobbies</h2>
+                <div class="hobbies-list">
+                    Cricket Analytics<br>
+                    Video Editing<br>
+                    Data Visualization<br>
+                    Sports Analysis<br>
+                    UI/UX Design<br>
+                    Statistical Modeling
+                </div>
+            </div>
+
+            <!-- Languages Known -->
+            <div class="sidebar-section">
+                <h2 class="sidebar-heading">Languages Known</h2>
+                <div class="language-item">
+                    <div class="language-name">English</div>
+                    <div class="stars">★★★★★</div>
+                </div>
+                <div class="language-item">
+                    <div class="language-name">Tamil</div>
+                    <div class="stars">★★★★★</div>
+
+                </div>
+        </aside>
+
+        <!-- RIGHT MAIN CONTENT -->
+        <main class="main-content">
+            <!-- Header -->
+            <div class="main-header">
+                <h1 class="main-name">Iyyappan Ganesan</h1>
+                <p class="main-title">Power BI Developer & Data Analyst | 6 Years Experience</p>
+            </div>
+
+            <!-- About -->
+            <section class="section">
+                <h2 class="section-title">Professional Summary</h2>
+                <p class="about-text">
+                    Power BI Developer with 6 years of experience translating complex data into meaningful insights through performance analysis, trend identification, forecasting, and anomaly detection. Holds a Bachelor's degree in Architecture, bringing strong visual storytelling and structured problem-solving abilities. Proven ability to present insights clearly to support strategic decision-making. My passion in Cricket made me study the game deeply, but my analytics background taught me how to remove bias, validate patterns, and turn observations into actionable insights.
+                </p>
+            </section>
+
+            <!-- Skills -->
+            <section class="section">
+                <h2 class="section-title">Key Skills</h2>
+
+                <div style="margin-bottom: 15px;">
+                    <h3 style="font-size: 12px; font-weight: 700; color: #2c3e50; margin-bottom: 8px;">Soft Skills:</h3>
+                    <div class="skills-tags">
+                        <span class="skill-tag">Multitasking</span>
+                        <span class="skill-tag">Team Management</span>
+                        <span class="skill-tag">Strong Problem-solving</span>
+                        <span class="skill-tag">Client Relationship Management</span>
+                        <span class="skill-tag">Presentation & Consultation</span>
+                        <span class="skill-tag">Critical Thinking</span>
+                        <span class="skill-tag">Self-awareness & Lifelong Learning</span>
+                        <span class="skill-tag">Time Management</span>
+                    </div>
+                </div>
+
+                <div style="margin-bottom: 15px;">
+                    <h3 style="font-size: 12px; font-weight: 700; color: #2c3e50; margin-bottom: 8px;">Technical Skills:</h3>
+                    <div class="skills-tags">
+                        <span class="skill-tag">SQL (sports stats database queries)</span>
+                        <span class="skill-tag">Advance Excel</span>
+                        <span class="skill-tag">ETL</span>
+                        <span class="skill-tag">Power BI / Tableau</span>
+                        <span class="skill-tag">Data Analysis</span>
+                        <span class="skill-tag">Python (predictive modeling)</span>
+                        <span class="skill-tag">User Interface Design</span>
+                        <span class="skill-tag">Figma</span>
+                        <span class="skill-tag">Canva (Video Analysis)</span>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 style="font-size: 12px; font-weight: 700; color: #2c3e50; margin-bottom: 8px;">Core Skills:</h3>
+                    <div class="skills-tags">
+                        <span class="skill-tag">Data Analysis</span>
+                        <span class="skill-tag">Data Visualization</span>
+                        <span class="skill-tag">Statistical Modelling</span>
+                        <span class="skill-tag">Predictive Analysis</span>
+                        <span class="skill-tag">Forecast</span>
+                        <span class="skill-tag">Time-Series Analysis</span>
+                        <span class="skill-tag">Performance Analysis</span>
+                        <span class="skill-tag">Anomaly Detection</span>
+                        <span class="skill-tag">Trend & Pattern Analysis</span>
+                        <span class="skill-tag">Vulnerability Assessment</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Current Employment -->
+            <section class="section">
+                <h2 class="section-title">Current Employment</h2>
+                <div class="employment-section">
+                    <div class="employment-header">
+                        <div class="job-title">Power BI Developer / Data Analyst</div>
+                        <div class="job-duration">March 2023 - Present</div>
+                    </div>
+                    <div class="company-name">Encompass Insurance Company</div>
+                    <div class="domain">Domain: Insurance Environment</div>
+
+                    <div class="subsection-title">Responsibilities:</div>
+                    <ul class="responsibilities-list">
+                        <li>Collected business requirements for Power BI reports from users and executives, ensuring alignment with KPIs and business objectives</li>
+                        <li>Delivered clear and actionable data analysis to internal and external teams, explaining the business relevance of the insights</li>
+                        <li>Prepared Weekly and BI-Weekly Performance report to track progress, identify improvement areas & support data driven insights</li>
+                        <li>Involved in data preparation and cleaning using Power Query Editor to ensure accurate and high-quality data for reporting</li>
+                    </ul>
+
+                    <div class="subsection-title">Significant Achievements:</div>
+                    <ul class="achievements-list">
+                        <li>Developed a risk scoring model for policyholders, improving underwriting efficiency and reducing claim losses by 15%</li>
+                        <li>Identified and flagged anomalous claims through advanced analytics, contributing to a 25% drop in fraudulent payouts</li>
+                        <li>Designed interactive dashboards for claims life cycle management, reducing processing time by 30%</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Previous Employment -->
+            <section class="section">
+                <h2 class="section-title">Previous Employment</h2>
+                <div class="employment-section">
+                    <div class="employment-header">
+                        <div class="job-title">Power BI Developer / Data Analyst</div>
+                        <div class="job-duration">March 2021 - June 2023</div>
+                    </div>
+                    <div class="company-name">Integra Life Science</div>
+                    <div class="domain">Domain: Healthcare Environment</div>
+
+                    <div class="subsection-title">Responsibilities:</div>
+                    <ul class="responsibilities-list">
+                        <li>Developed requirements for Power BI Reports from business users and executives</li>
+                        <li>Present the analysis to internal and external teams and explain data from a business perspective and relevance to Key Performance Indicators (KPI)</li>
+                        <li>Delivering reports to the Business team promptly</li>
+                        <li>Optimized the health Insurance Database and KPIs in high accuracy and collaborated with cross function teams</li>
+                        <li>Involved in data cleaning and data preparation using Power Query Editor</li>
+                    </ul>
+
+                    <div class="subsection-title">Significant Achievements:</div>
+                    <ul class="achievements-list">
+                        <li>Collaborated with cross-functional teams to streamline data from multiple hospital systems, improving data quality by 30%</li>
+                        <li>Reduced hospital readmission rates by 12% through predictive modelling on patient history and behaviour data</li>
+                        <li>Improved patient outcome tracking by developing a real-time analytics dashboard that reduced manual reporting time by 40%</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Passion Projects -->
+            <section class="section">
+                <h2 class="section-title">Passion Projects - Cricket Analytics</h2>
+                <table class="projects-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 25%;">Project Name</th>
+                            <th style="width: 25%;">Application</th>
+                            <th style="width: 20%;">Tech Stack</th>
+                            <th style="width: 30%;">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="project-name">Technical Analysis</td>
+                            <td>David Warner vs Stuart Broad (Ashes)</td>
+                            <td>
+                                <div class="project-tech">
+                                    <div class="tech-badge" style="background: #E44D26;" title="Video Analysis">VA</div>
+                                    <div class="tech-badge" style="background: #217346;" title="Kinovea">KV</div>
+                                </div>
+                            </td>
+                            <td>Diagnosed Warner's technical flaw using Kinovea. Identified weakness on 4th & 5th stump line and lack of head position and leg movement</td>
+                        </tr>
+                        <tr>
+                            <td class="project-name">Player Analysis</td>
+                            <td>Joe Root (Ashes)</td>
+                            <td>
+                                <div class="project-tech">
+                                    <div class="tech-badge" style="background: #E44D26;" title="Video Analysis">VA</div>
+                                    <div class="tech-badge" style="background: #217346;" title="Data">DT</div>
+                                </div>
+                            </td>
+                            <td>Analyzed technical flaw against pace and angle. Proposed strategic insights to opponent to set him up early</td>
+                        </tr>
+                        <tr>
+                            <td class="project-name">LED Storytelling</td>
+                            <td>4th Ashes 2025-26, Adelaide Oval</td>
+                            <td>
+                                <div class="project-tech">
+                                    <div class="tech-badge" style="background: #F24E1E;" title="Design">FG</div>
+                                    <div class="tech-badge" style="background: #00C4CC;" title="Graphics">CV</div>
+                                </div>
+                            </td>
+                            <td>Designed LED storytelling report. Added team stories, probable playing XI and predicted winners based on historical data</td>
+                        </tr>
+                        <tr>
+                            <td class="project-name">Video Editing</td>
+                            <td>Pat Cummins Stats (Ashes)</td>
+                            <td>
+                                <div class="project-tech">
+                                    <div class="tech-badge" style="background: #00C4CC;" title="Video Edit">VE</div>
+                                    <div class="tech-badge" style="background: #217346;" title="Stats">ST</div>
+                                </div>
+                            </td>
+                            <td>Edited video on Pat Cummins' Ashes and Pink Ball records. Showcased his record as captain and bowler</td>
+                        </tr>
+                        <tr>
+                            <td class="project-name">Broadcast Video</td>
+                            <td>ICC T20 World Cup - Australia Squad</td>
+                            <td>
+                                <div class="project-tech">
+                                    <div class="tech-badge" style="background: #00C4CC;" title="Video Edit">VE</div>
+                                    <div class="tech-badge" style="background: #F24E1E;" title="Design">FG</div>
+                                </div>
+                            </td>
+                            <td>Created broadcaster-style video featuring Australia T20 World Cup squad with professional graphics</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+        </main>
+    </div>
+</body>
+
+</html>
